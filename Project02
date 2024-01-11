@@ -1,1 +1,42 @@
 
+import { useState } from 'react';
+import './App.css'
+
+function App() { 
+  //creating hooks
+  let [counter, setCounter] = useState(0) //setcounter function is responsible for updatting the counter variable and the default value is 5
+
+const addValue = ()=>{
+  if(counter<20){
+    setCounter(counter+1)//this is updating the value with +1
+    console.log("value update");
+  }
+  
+}
+
+const removeValue =()=>{
+  if(counter>0){
+    setCounter(counter-1)//this is removing the value with -1
+    console.log("value removed");
+  }
+ 
+}
+  return (
+   <>
+   <h1>Updating Counter Value</h1>
+   <h2>Counter value: {counter}</h2>
+
+   <button
+   onClick={addValue}
+   >Add value</button>
+   <br/>
+   <br/>
+   <button
+   onClick={removeValue}
+   >Remove value</button>
+   </>
+  )
+}
+
+export default App
+
