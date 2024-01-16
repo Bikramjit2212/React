@@ -9,3 +9,6 @@ configured tailwind, handeled the props, used the devui library and used compone
 
 in project04
 created a multiplication table of 5 for learning the component mount and componenet render and then publishing it so that I can learn about how to use github desktop
+
+in project05
+created a background changer to learn about on click and how the functions are getting returned and how the parameters are working and how onclick expects a function to return and it needs the function not the returned value of function because we dont know what the function is returning
