@@ -1,0 +1,60 @@
+// a. Import necessary functions from the 'react' library
+import { useState, useCallback, useEffect, useRef } from 'react'
+
+// b. Start defining our React component called 'App'
+function App() {
+
+  // c. Create state variables and functions to update them
+  const [length, setLength] = useState(8)  // d. Password length, default set to 8
+  const [numberAllowed, setNumberAllowed] = useState(false)  // e. Whether to include numbers
+  const [charAllowed, setCharAllowed] = useState(false)  // f. Whether to include special characters
+  const [password, setPassword] = useState("")  // g. The generated password
+
+  // h. Create a reference to the password input field
+  const passwordRef = useRef(null)
+
+  // i. Define a function to generate a random password
+  const passwordGenerator = useCallback(() => {
+    // j. Initialize an empty string to store the password
+    let pass = ""
+
+    // k. Define the characters for the password (uppercase, lowercase)
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+    // l. Add numbers to the characters if 'numberAllowed' is true
+    if (numberAllowed) str += "0123456789"
+
+    // m. Add special characters to the characters if 'charAllowed' is true
+    if (charAllowed) str += "!@#$%^&*-_+=[]{}~`"
+
+    // n. Generate the password based on the specified length and character set
+    for (let i = 1; i <= length; i++) {
+      let char = Math.floor(Math.random() * str.length)
+      pass += str.charAt(char)
+    }
+
+    // o. Update the 'password' state with the generated password
+    setPassword(pass)
+  }, [length, numberAllowed, charAllowed, setPassword])
+
+  // p. Define a function to copy the generated password to the clipboard
+  const copyPasswordToClipboard = useCallback(() => {
+    // q. Use the 'passwordRef' to select and copy the password
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0, 999);
+    window.navigator.clipboard.writeText(password)
+  }, [password])
+
+  // r. Use the 'useEffect' hook to call the password generator function
+  useEffect(() => {
+    passwordGenerator()
+  }, [length, numberAllowed, charAllowed, passwordGenerator])
+
+  // s. Return the JSX representing the user interface of our component
+  return (
+    // t. JSX code for the password generator user interface
+  )
+}
+
+// u. Export our 'App' component to use it in other parts of our application
+export default App
