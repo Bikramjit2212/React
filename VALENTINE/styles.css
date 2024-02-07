@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+    background-image: url(https://media1.tenor.com/m/C7ehg7pDR4AAAAAC/aesthetic-autumn-season.gif);
+    background-repeat:no-repeat;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+.greeting-card {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    background-image: url(https://i.pinimg.com/originals/bc/c7/ab/bcc7abc844aa8be1abc46a9f5d3c22c5.gif);
+    background-size:cover;
+    background-repeat:no-repeat;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+@keyframes floatEnvelope {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+}
+h1{
+    color: white;
+    font-weight: 900;
+    font-size: 36px;
+    text-shadow: 4px 4px 4px #080808;
+}
+
+.message {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 4px 4px 4px #080808;
+}
+
+.rose-heart {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+}
+
+.rose-heart img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+    
+}
+
+.rose-heart.heart-filled {
+    background-color: #ff4d6e;
+    animation: heartBeat 0.3s infinite alternate;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.message {
+    line-height: 1.6;
+}
